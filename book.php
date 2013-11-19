@@ -54,7 +54,7 @@
 			echo '<div >'.'<a href="index.html"><button id="menu_bts_2">Home</button></a>'."</div>";
 			echo '<form method="post">';
 			echo '<div id ="add_books" >'."<strong>Id</strong>".'<input id ="ab_fields_1" type="text" name="id_book" placeholder="Book Id" onkeydown="return OnlyNumbers (event)" required >'."</div>";
-			echo '<div id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_book" placeholder="Book Name" onkeydown="return OnlyLeters (event)" required >'."</div>";
+			echo '<div id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_book" placeholder="Book Name" required >'."</div>";
 			echo '<div id ="add_books_2" >'."<strong>Year</strong>".'<input id ="ab_fields" type="text" name="year_book" placeholder="Year" onkeydown="return OnlyNumbers (event)" required >'."</div>";
 			echo '<div id ="add_books_2" >'."<strong>ISBN</strong>".'<input id ="ab_fields" type="text" name="isbn_book" placeholder="ISBN" required >'."</div>";
 			echo '<div id = "add_books_2"><strong>Editorial</strong>';
