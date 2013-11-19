@@ -88,9 +88,39 @@
 	text-align: center;
 	color: #660000;	
 	margin-right: 140px;
+}
+
+#add_books_3{
+	font-weight: bold;
+	font-weight: italic;
+	font-family: Courier;
+	font-size: 30px;
+	text-align: center;
+	color: #660000;	
+	margin-left: 70px;
+}
+
+#add_ba{
+	font-weight: bold;
+	font-weight: italic;
+	font-family: Courier;
+	font-size: 30px;
+	text-align: center;
+	color: #660000;	
+	margin-top:100px;
+	margin-right: 120px;
 
 }
 
+#add_ba_2{
+	font-weight: bold;
+	font-weight: italic;
+	font-family: Courier;
+	font-size: 30px;
+	text-align: center;
+	color: #660000;	
+	margin-right: 120px;
+}
 
 #ab_fields{
 	width: 25%;
@@ -99,6 +129,18 @@
 }
 
 #ab_fields_1{
+	width: 25%;
+	height: 30px;
+	margin-left: 45px;
+}
+
+#aab_fields{
+	width: 25%;
+	height: 30px;
+	margin-left: 80px;
+}
+
+#aab_fields_1{
 	width: 25%;
 	height: 30px;
 	margin-left: 45px;

@@ -57,7 +57,7 @@
 			echo '<div id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_book" placeholder="Book Name" required >'."</div>";
 			echo '<div id ="add_books_2" >'."<strong>Year</strong>".'<input id ="ab_fields" type="text" name="year_book" placeholder="Year" onkeydown="return OnlyNumbers (event)" required >'."</div>";
 			echo '<div id ="add_books_2" >'."<strong>ISBN</strong>".'<input id ="ab_fields" type="text" name="isbn_book" placeholder="ISBN" required >'."</div>";
-			echo '<div id = "add_books_2"><strong>Editorial</strong>';
+			echo '<div id = "add_books_3"><strong>Editorial</strong>';
 			echo '<select id ="ab_fields" name="editorial">';
 			echo '<option>Seleccione una Opcion</option>';
 			$query = "SELECT * FROM editorial";

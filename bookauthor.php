@@ -31,8 +31,8 @@
 		}
 		echo '<div >'.'<a href="index.html"><button id="menu_bts_2">Home</button></a>'."</div>";
 		echo '<form method="post">';
-		echo '<div id ="add_books"><strong>Books</strong>';
-		echo '<select id ="ab_fields" name="libros">';
+		echo '<div id ="add_ba"><strong>Books</strong>';
+		echo '<select id ="aab_fields" name="libros">';
 		echo '<option>Seleccione una Opcion</option>';
 		$query = "SELECT * FROM book";
 		$result = mysqli_query($con,$query);
@@ -42,8 +42,8 @@
 		echo '</select>';
 		echo "</div>";
 
-		echo '<div id ="add_books_2"><strong>Authors</strong>';
-		echo '<select id ="ab_fields" name="authors">';
+		echo '<div id ="add_ba_2"><strong>Authors</strong>';
+		echo '<select id ="aab_fields_1" name="authors">';
 		echo '<option>Seleccione una Opcion</option>';
 		$query = "SELECT * FROM author";
 		$result = mysqli_query($con,$query);
