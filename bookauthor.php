@@ -52,7 +52,7 @@
 			}
 		echo '</select>';
 		echo "</div>";
-		echo "<div>".'<input id="menu_bts_3" type="submit" name="save_button" value="Agregar" >'."</div>";
+		echo "<div>".'<input id="menu_bts_3" type="submit" name="save_button" value="Add BookAuthor" >'."</div>";
 		echo '</form>';
 		?>
 
