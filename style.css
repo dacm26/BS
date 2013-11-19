@@ -10,11 +10,79 @@
 	font-family: Courier;
 	font-size: 30px;
 	text-align: center;
-	color: #FFFFCC;	
+	color: #FFFFCC;
+}
+
+#menu_bts_1{
+	float:left;
+	display: inline-block;
+	width: 25%;
+	height: 50px;
+	background-color: #996600;
+	border-radius: 10px;
+	font-weight: bold;
+	font-weight: italic;
+	font-family: Courier;
+	font-size: 30px;
+	text-align: center;
+	color: #FFFFCC;
+}
+
+#menu_bts_2{
+	display: block;
+	width: 25%;
+	height: 50px;
+	background-color: #996600;
+	border-radius: 10px;
+	font-weight: bold;
+	font-weight: italic;
+	font-family: Courier;
+	font-size: 30px;
+	text-align: center;
+	color: #FFFFCC;
+	float: left;
+	text-decoration: none;
+	margin-bottom: 100px;	
 }
 
 .bar{
 	background-image: url('bar.jpg');
 	width: 100%;
 	height: 100%;
+}
+
+#add_books{
+	font-weight: bold;
+	font-weight: italic;
+	font-family: Courier;
+	font-size: 30px;
+	text-align: center;
+	color: #660000;	
+	margin-top:100px;
+	margin-right: 140px;
+
+}
+
+#add_books_2{
+	font-weight: bold;
+	font-weight: italic;
+	font-family: Courier;
+	font-size: 30px;
+	text-align: center;
+	color: #660000;	
+	margin-right: 140px;
+
+}
+
+
+#ab_fields{
+	width: 25%;
+	height: 30px;
+	margin-left: 8px;
+}
+
+#ab_fields_1{
+	width: 25%;
+	height: 30px;
+	margin-left: 45px;
 }

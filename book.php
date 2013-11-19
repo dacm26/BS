@@ -42,23 +42,23 @@
 						alert("Ya hay libros con ese Id");
 					  </script>';
 				}
-				else{
+				/*else{
 				echo '<script>
 						var add = confirm("Desea Agregar autores a los libros?");
 						if(add){
 							window.location.assign("bookauthor.php")
 						}
 					  </script>';
-				}
+				}*/
 			}
+			echo '<div >'.'<a href="index.html"><button id="menu_bts_2">Home</button></a>'."</div>";
 			echo '<form method="post">';
-			echo "<h2>Fill the next Fields:</h2>";
-			echo "<div>"."<strong>Id</strong>".'<input type="text" name="id_book" placeholder="Book Id" onkeydown="return OnlyNumbers (event)" required >'."</div>";
-			echo "<div>"."<strong>Name</strong>".'<input type="text" name="name_book" placeholder="Book Name" onkeydown="return OnlyLeters (event)" required >'."</div>";
-			echo "<div>"."<strong>Year</strong>".'<input type="text" name="year_book" placeholder="Year" onkeydown="return OnlyNumbers (event)" required >'."</div>";
-			echo "<div>"."<strong>ISBN</strong>".'<input type="text" name="isbn_book" placeholder="ISBN" required >'."</div>";
-			echo "<div><strong>Editorial</strong>";
-			echo '<select name="editorial">';
+			echo '<div id ="add_books" >'."<strong>Id</strong>".'<input id ="ab_fields_1" type="text" name="id_book" placeholder="Book Id" onkeydown="return OnlyNumbers (event)" required >'."</div>";
+			echo '<div id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_book" placeholder="Book Name" onkeydown="return OnlyLeters (event)" required >'."</div>";
+			echo '<div id ="add_books_2" >'."<strong>Year</strong>".'<input id ="ab_fields" type="text" name="year_book" placeholder="Year" onkeydown="return OnlyNumbers (event)" required >'."</div>";
+			echo '<div id ="add_books_2" >'."<strong>ISBN</strong>".'<input id ="ab_fields" type="text" name="isbn_book" placeholder="ISBN" required >'."</div>";
+			echo '<div id = "add_books_2"><strong>Editorial</strong>';
+			echo '<select id ="ab_fields" name="editorial">';
 			echo '<option>Seleccione una Opcion</option>';
 			$query = "SELECT * FROM editorial";
 			$result = mysqli_query($con,$query);
@@ -67,9 +67,8 @@
 				}
 			echo '</select>';
 			echo "</div>";
-			echo "<div>".'<input type="submit" name="save_button" value="Add Book" >'."</div>";
+			echo '<div >'.'<input id="menu_bts_1" type="submit" name="save_button" value="Add Book" >'."</div>";
 			echo '</form>';
-			echo "<div float: left;>".'<a href="index.html"><button>Home</button></a>'."</div>";
 		?>
 	</body>
 </html>
