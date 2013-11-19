@@ -1,7 +1,9 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Agregar Autores</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="shortcut icon" href="bk.png">
+		<title>Add BookAuthors</title>
 	</head>
 	<body class="bar">
 		<?php
@@ -18,18 +20,19 @@
 						alert("El libro ya tiene a ese autor");
 					  </script>';
 			}
-			else{
+			/*else{
 			echo '<script>
 					var add = confirm("Desea Agregar mas autores a los libros?");
 					if(!add){
 						window.location.assign("index.html")
 					}
 				  </script>';
-			}
+			}*/
 		}
+		echo '<div >'.'<a href="index.html"><button id="menu_bts_2">Home</button></a>'."</div>";
 		echo '<form method="post">';
-		echo "<div><strong>Libros</strong>";
-		echo '<select name="libros">';
+		echo '<div id ="add_books"><strong>Books</strong>';
+		echo '<select id ="ab_fields" name="libros">';
 		echo '<option>Seleccione una Opcion</option>';
 		$query = "SELECT * FROM book";
 		$result = mysqli_query($con,$query);
@@ -39,8 +42,8 @@
 		echo '</select>';
 		echo "</div>";
 
-		echo "<div><strong>Autores</strong>";
-		echo '<select name="authors">';
+		echo '<div id ="add_books_2"><strong>Authors</strong>';
+		echo '<select id ="ab_fields" name="authors">';
 		echo '<option>Seleccione una Opcion</option>';
 		$query = "SELECT * FROM author";
 		$result = mysqli_query($con,$query);
@@ -49,7 +52,7 @@
 			}
 		echo '</select>';
 		echo "</div>";
-		echo "<div>".'<input type="submit" name="save_button" value="Agregar" >'."</div>";
+		echo "<div>".'<input id="menu_bts_3" type="submit" name="save_button" value="Agregar" >'."</div>";
 		echo '</form>';
 		?>
 

@@ -45,6 +45,23 @@
 	margin-bottom: 100px;	
 }
 
+#menu_bts_3{
+	float:left;
+	clear: left;
+	display: block;
+	width: 25%;
+	height: 50px;
+	background-color: #996600;
+	border-radius: 10px;
+	font-weight: bold;
+	font-weight: italic;
+	font-family: Courier;
+	font-size: 30px;
+	text-align: center;
+	color: #FFFFCC;
+	margin-right: 50px;
+}
+
 .bar{
 	background-image: url('bar.jpg');
 	width: 100%;
