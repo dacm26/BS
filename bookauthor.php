@@ -32,7 +32,7 @@
 		echo '<div >'.'<a href="index.html"><button id="menu_bts_2">Home</button></a>'."</div>";
 		echo '<form method="post">';
 		echo '<div id ="add_ba"><strong>Books</strong>';
-		echo '<select id ="aab_fields" name="libros">';
+		echo '<select id ="aab_fields" name="libros" required>';
 		echo '<option>Seleccione una Opcion</option>';
 		$query = "SELECT * FROM book";
 		$result = mysqli_query($con,$query);
@@ -43,7 +43,7 @@
 		echo "</div>";
 
 		echo '<div id ="add_ba_2"><strong>Authors</strong>';
-		echo '<select id ="aab_fields_1" name="authors">';
+		echo '<select id ="aab_fields_1" name="authors" required>';
 		echo '<option>Seleccione una Opcion</option>';
 		$query = "SELECT * FROM author";
 		$result = mysqli_query($con,$query);
