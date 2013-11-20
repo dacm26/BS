@@ -7,7 +7,8 @@
 	</head>
 	<body class="bar">
 		<?php
-		$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+		//con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+		$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
 		if (mysqli_connect_errno($con)) {
 			echo "Error";
 		}
