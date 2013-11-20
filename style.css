@@ -1,20 +1,6 @@
-#menu_bts{
-	float:left;
-	display: inline-block;
-	width: 25%;
-	height: 50px;
-	background-color: #996600;
-	border-radius: 10px;
-	font-weight: bold;
-	font-weight: italic;
-	font-family: Courier;
-	font-size: 30px;
-	text-align: center;
-	color: #FFFFCC;
-}
 
 #menu_bts_1{
-	float:left;
+	float:center;
 	display: inline-block;
 	width: 25%;
 	height: 50px;
@@ -26,27 +12,10 @@
 	font-size: 30px;
 	text-align: center;
 	color: #FFFFCC;
-}
-
-#menu_bts_2{
-	display: block;
-	width: 25%;
-	height: 50px;
-	background-color: #996600;
-	border-radius: 10px;
-	font-weight: bold;
-	font-weight: italic;
-	font-family: Courier;
-	font-size: 30px;
-	text-align: center;
-	color: #FFFFCC;
-	float: left;
-	text-decoration: none;
-	margin-bottom: 100px;	
 }
 
 #menu_bts_3{
-	float:left;
+	float:center;
 	clear: left;
 	display: block;
 	width: 25%;
@@ -75,7 +44,7 @@
 	font-size: 30px;
 	text-align: center;
 	color: #660000;	
-	margin-top:100px;
+	margin-top:150px;
 	margin-right: 140px;
 
 }
@@ -88,6 +57,7 @@
 	text-align: center;
 	color: #660000;	
 	margin-right: 140px;
+	clear: top;
 }
 
 #add_books_3{
@@ -97,7 +67,8 @@
 	font-size: 30px;
 	text-align: center;
 	color: #660000;	
-	margin-left: 70px;
+	margin-right: 20px;
+	clear: top;
 }
 
 #add_ba{
@@ -109,6 +80,7 @@
 	color: #660000;	
 	margin-top:100px;
 	margin-right: 120px;
+	clear: top;
 
 }
 
@@ -120,30 +92,39 @@
 	text-align: center;
 	color: #660000;	
 	margin-right: 120px;
+	clear: top;
 }
 
 #ab_fields{
 	width: 25%;
 	height: 30px;
 	margin-left: 8px;
+	text-align: center;
+	clear: top;
 }
 
 #ab_fields_1{
 	width: 25%;
 	height: 30px;
 	margin-left: 45px;
+	text-align: center;
+	clear: top;
 }
 
 #aab_fields{
 	width: 25%;
 	height: 30px;
 	margin-left: 80px;
+	text-align: center;
+	clear: top;
 }
 
 #aab_fields_1{
 	width: 25%;
 	height: 30px;
 	margin-left: 45px;
+	text-align: center;
+	clear: top;
 }
 
 /*Para el menu desplegable*/
@@ -157,7 +138,7 @@
 	display: inline;
 }
 
-*{
+ul,li,a,span{
 	list-style: none;
 	text-decoration: none;
 	margin: 0;
@@ -198,3 +179,9 @@
 .nav li:hover > ul{
 	display: block;
 }
+
+.mb{
+	float: center;
+	clear: left;
+}
+

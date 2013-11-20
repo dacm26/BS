@@ -29,6 +29,49 @@
 	</head>
 	<body class="bar">
 		<?php
+			echo '		<div>
+		<ul class = "nav">
+			<li>
+				<a href="index.html">Home<span class = "flecha">&#9660</span></a>
+			</li>
+			<li>
+				<a href="#">Books<span class = "flecha">&#9660</span></a>
+				<ul>
+					<li><a href="book.php">Add Book<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">Remove Book<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">Update Book<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">List Book<span class = "flecha">&#9660</span></a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Authors<span class = "flecha">&#9660</span></a>
+				<ul>
+					<li><a href="#">Add Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">Remove Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">Update Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">List Authors<span class = "flecha">&#9660</span></a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Book Authors<span class = "flecha">&#9660</span></a>
+				<ul>
+					<li><a href="bookauthor.php">Add Book Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">Remove Book Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">Update Book Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">List Book Authors<span class = "flecha">&#9660</span></a></li>
+				</ul>
+			</li>	
+			<li>
+				<a href="#">Editorial<span class = "flecha">&#9660</span></a>
+				<ul>
+					<li><a href="#">Add Editorial<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">Remove Editorial<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">Update Editorial<span class = "flecha">&#9660</span></a></li>
+					<li><a href="#">List Editorials<span class = "flecha">&#9660</span></a></li>
+				</ul>
+			</li>				
+		</ul>
+		</div>';
 			$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
 			if (mysqli_connect_errno($con)) {
 				echo "Error";
@@ -42,32 +85,22 @@
 						alert("Ya hay libros con ese Id");
 					  </script>';
 				}
-				/*else{
-				echo '<script>
-						var add = confirm("Desea Agregar autores a los libros?");
-						if(add){
-							window.location.assign("bookauthor.php")
-						}
-					  </script>';
-				}*/
 			}
-			echo '<div >'.'<a href="index.html"><button id="menu_bts_2">Home</button></a>'."</div>";
 			echo '<form method="post">';
-			echo '<div id ="add_books" >'."<strong>Id</strong>".'<input id ="ab_fields_1" type="text" name="id_book" placeholder="Book Id" onkeydown="return OnlyNumbers (event)" required >'."</div>";
-			echo '<div id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_book" placeholder="Book Name" required >'."</div>";
-			echo '<div id ="add_books_2" >'."<strong>Year</strong>".'<input id ="ab_fields" type="text" name="year_book" placeholder="Year" onkeydown="return OnlyNumbers (event)" required >'."</div>";
-			echo '<div id ="add_books_2" >'."<strong>ISBN</strong>".'<input id ="ab_fields" type="text" name="isbn_book" placeholder="ISBN" required >'."</div>";
-			echo '<div id = "add_books_3"><strong>Editorial</strong>';
-			echo '<select id ="ab_fields" name="editorial">';
-			echo '<option>Seleccione una Opcion</option>';
+			echo '<div class="mb" id ="add_books" >'."<strong>Id</strong>".'<input id ="ab_fields_1" type="text" name="id_book" placeholder="Book Id" onkeydown="return OnlyNumbers (event)" required >'."</div>";
+			echo '<div class="mb" id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_book" placeholder="Book Name" required >'."</div>";
+			echo '<div class="mb" id ="add_books_2" >'."<strong>Year</strong>".'<input id ="ab_fields" type="text" name="year_book" placeholder="Year" onkeydown="return OnlyNumbers (event)" required >'."</div>";
+			echo '<div class="mb" id ="add_books_2" >'."<strong>ISBN</strong>".'<input id ="ab_fields" type="text" name="isbn_book" placeholder="ISBN" required >'."</div>";
+			echo '<div class="mb" id = "add_books_3"><strong>Editorial</strong>';
+			echo '<select class="mb" id ="ab_fields" name="editorial">';
+			echo '<option>...</option>';
 			$query = "SELECT * FROM editorial";
 			$result = mysqli_query($con,$query);
 				while ($row=mysqli_fetch_array($result)) {
 					echo '<option value = "'.$row['ideditorial'].'">'.$row['nameeditorial'].'</option>';
 				}
 			echo '</select>';
-			echo "</div>";
-			echo '<div >'.'<input id="menu_bts_1" type="submit" name="save_button" value="Add Book" >'."</div>";
+			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Add Book" >'."</div>";
 			echo '</form>';
 		?>
 	</body>
