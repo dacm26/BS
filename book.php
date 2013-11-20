@@ -72,14 +72,15 @@
 			</li>				
 		</ul>
 		</div>';
-			$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+			//con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+			$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
 			if (mysqli_connect_errno($con)) {
 				echo "Error";
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
-				$query = "INSERT INTO book(idbook,isbn,namebook,year,ideditorial) VALUES (".$_POST['id_book'].",'".$_POST['isbn_book']."','".$_POST['name_book']."',".$_POST['year_book'].','.$_POST['editorial'].');';
+				$query = "INSERT INTO book(isbn,namebook,year,ideditorial) VALUES ("."'".$_POST['isbn_book']."','".$_POST['name_book']."',".$_POST['year_book'].','.$_POST['editorial'].');';
 				if(!mysqli_query($con,$query)){
 				echo '<script>
 						alert("Ya hay libros con ese Id");
@@ -87,7 +88,6 @@
 				}
 			}
 			echo '<form method="post">';
-			echo '<div class="mb" id ="add_books" >'."<strong>Id</strong>".'<input id ="ab_fields_1" type="text" name="id_book" placeholder="Book Id" onkeydown="return OnlyNumbers (event)" required >'."</div>";
 			echo '<div class="mb" id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_book" placeholder="Book Name" required >'."</div>";
 			echo '<div class="mb" id ="add_books_2" >'."<strong>Year</strong>".'<input id ="ab_fields" type="text" name="year_book" placeholder="Year" onkeydown="return OnlyNumbers (event)" required >'."</div>";
 			echo '<div class="mb" id ="add_books_2" >'."<strong>ISBN</strong>".'<input id ="ab_fields" type="text" name="isbn_book" placeholder="ISBN" required >'."</div>";

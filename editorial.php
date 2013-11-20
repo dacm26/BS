@@ -72,14 +72,15 @@
 			</li>				
 		</ul>
 		</div>';
-			$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+			//con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+			$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
 			if (mysqli_connect_errno($con)) {
 				echo "Error";
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
-				$query = "INSERT INTO editorial(ideditorial,nameeditorial,address) VALUES (".$_POST['id_ed'].",'".$_POST['name_ed']."','".$_POST['address']."');";
+				$query = "INSERT INTO editorial(nameeditorial,address) VALUES ("."'".$_POST['name_ed']."','".$_POST['address']."');";
 				if(!mysqli_query($con,$query)){
 				echo '<script>
 						alert("Ya hay editoriales con ese Id");
@@ -87,7 +88,6 @@
 				}
 			}
 			echo '<form method="post">';
-			echo '<div class="mb" id ="add_books" >'."<strong>Id</strong>".'<input id ="ab_fields_1" type="text" name="id_ed" placeholder="Editorial Id" onkeydown="return OnlyNumbers (event)" required >'."</div>";
 			echo '<div class="mb" id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_ed" placeholder="Editorial Name" required >'."</div>";
 			echo '<div class="mb" id ="add_books_2" >'."<strong>Nationality</strong>".'<input id ="ab_fields" type="text" name="address" placeholder="Address" required >'."</div>";
 			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Add Editorial" >'."</div>";
