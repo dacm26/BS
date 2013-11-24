@@ -184,4 +184,22 @@ ul,li,a,span{
 	float: center;
 	clear: left;
 }
+.mt{
+	clear: left;
+	float: center;
+	margin-left: 25%;
+}
 
+table, td, th{
+	border: 1px solid #996600;
+	font-weight: bold;
+	font-weight: italic;
+	font-family: Courier;
+	font-size: 30px;
+	text-align: center;
+}
+
+th{
+	background-color: #996600;
+	color: #FFFFCC;
+}

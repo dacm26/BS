@@ -1,7 +1,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Remove Author</title>
+		<title>List Authors</title>
 		<link rel="shortcut icon" href="bk.png">
 		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<script type="text/javascript">
@@ -80,33 +80,27 @@
 			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
-				$query= "DELETE FROM author WHERE idauthor=".$_POST['id'].';';
-				if(mysqli_query($con,$query)){
-					$query= "DELETE FROM bookauthors WHERE idauthor=".$_POST['id'].';';
-					if (!mysqli_query($con,$query)) {
-						echo '<script>
-							alert("Error");
-					 	 </script>';
-					}
-				}
-				else{
-					echo '<script>
-							alert("Error");
-					 	 </script>';
-				}
 			}
-			echo '<form method="post">';
-			echo '<div class="mb" id = "add_books_3"><strong>Authors</strong>';
-			echo '<select class="mb" id ="ab_fields" name="id">';
-			echo '<option>...</option>';
-			$query = "SELECT * FROM author";
+			echo '<div class= "mt"><table>
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Nationality</th>
+						</tr>
+					</thead>';
+			echo "  <tbody>";
+			$query = "SELECT * FROM author;";
 			$result = mysqli_query($con,$query);
-				while ($row=mysqli_fetch_array($result)) {
-					echo '<option value = "'.$row['idauthor'].'">'.$row['nameauthor'].'</option>';
-				}
-			echo '</select>';
-			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Delete author" >'."</div>";
-			echo '</form>';
+			while ($row=mysqli_fetch_array($result)) {
+					echo "<tr>";
+					echo "<td>".$row['idauthor']."</td>";
+					echo "<td>".$row['nameauthor']."</td>";
+					echo "<td>".$row['nationality']."</td>";
+					echo "</tr>";
+			}
+			echo "  </tbody>";
+			echo "</table></div>";
 		?>
 	</body>
 </html>

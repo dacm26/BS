@@ -33,7 +33,7 @@
 					<li><a href="book.php">Add Book<span class = "flecha">&#9660</span></a></li>
 					<li><a href="del_book.php">Remove Book<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">Update Book<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">List Book<span class = "flecha">&#9660</span></a></li>
+					<li><a href="list_books.php">List Books<span class = "flecha">&#9660</span></a></li>
 				</ul>
 			</li>
 			<li>
@@ -42,7 +42,7 @@
 					<li><a href="author.php">Add Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="del_author.php">Remove Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">Update Author<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">List Authors<span class = "flecha">&#9660</span></a></li>
+					<li><a href="list_authors.php">List Authors<span class = "flecha">&#9660</span></a></li>
 				</ul>
 			</li>
 			<li>
@@ -51,7 +51,7 @@
 					<li><a href="bookauthor.php">Add Book Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="del_bkau.php">Remove Book Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">Update Book Author<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">List Book Authors<span class = "flecha">&#9660</span></a></li>
+					<li><a href="list_bkau.php">List Book Authors<span class = "flecha">&#9660</span></a></li>
 				</ul>
 			</li>	
 			<li>
@@ -60,7 +60,7 @@
 					<li><a href="editorial.php">Add Editorial<span class = "flecha">&#9660</span></a></li>
 					<li><a href="del_edit.php">Remove Editorial<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">Update Editorial<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">List Editorials<span class = "flecha">&#9660</span></a></li>
+					<li><a href="list_editorial.php">List Editorials<span class = "flecha">&#9660</span></a></li>
 				</ul>
 			</li>				
 		</ul>
