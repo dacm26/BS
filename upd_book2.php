@@ -1,7 +1,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>List Authors</title>
+		<title>Add Books</title>
 		<link rel="shortcut icon" href="bk.png">
 		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<script type="text/javascript">
@@ -76,30 +76,45 @@
 			if (mysqli_connect_errno($con)) {
 				echo "Error";
 			}
+			$id=$_GET['id'];
 			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
+				$query = "INSERT INTO book(isbn,namebook,year,ideditorial) VALUES ("."'".$_POST['isbn_book']."','".$_POST['name_book']."',".$_POST['year_book'].','.$_POST['editorial'].');';
+				$query = 'UPDATE book SET isbn="'.$_POST['isbn_book'].'", namebook="'.$_POST['name_book'].'", year='.$_POST['year_book'].',ideditorial='.$_POST['editorial']." WHERE idbook=".$id.";";
+				echo $query;
+				if(!mysqli_query($con,$query)){
+				echo '<script>
+						alert("Error");
+					  </script>';
+				}
+				echo '<script>window.location.assign("upd_book.php")</script>';
 			}
-			echo '<div class= "mt"><table>
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>Name</th>
-							<th>Nationality</th>
-						</tr>
-					</thead>';
-			echo "  <tbody>";
-			$query = "SELECT * FROM author;";
+			$query = "SELECT * FROM book WHERE idbook=".$id.";";
 			$result = mysqli_query($con,$query);
-			while ($row=mysqli_fetch_array($result)) {
-					echo "<tr>";
-					echo "<td>".$row['idauthor']."</td>";
-					echo "<td>".$row['nameauthor']."</td>";
-					echo "<td>".$row['nationality']."</td>";
-					echo "</tr>";
-			}
-			echo "  </tbody>";
-			echo "</table></div>";
+			$row=mysqli_fetch_array($result);
+			echo '<form method="post">';
+			echo '<div class="mb" id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_book" placeholder="Book Name" required value="'.$row['namebook']. '"">'."</div>";
+			echo '<div class="mb" id ="add_books_2" >'."<strong>Year</strong>".'<input id ="ab_fields" type="text" name="year_book" placeholder="Year" required value="'.$row['year']. '"onkeydown="return OnlyNumbers (event)">'."</div>";
+			echo '<div class="mb" id ="add_books_2" >'."<strong>ISBN</strong>".'<input id ="ab_fields" type="text" name="isbn_book" placeholder="ISBN" " required value="'.$row['isbn']. '"">'."</div>";
+			echo '<div class="mb" id = "add_books_3"><strong>Editorial</strong>';
+			echo '<select class="mb" id ="ab_fields" name="editorial">';
+			$query = "SELECT * FROM editorial";
+			$result = mysqli_query($con,$query);
+			$query2 = "SELECT ideditorial FROM book WHERE idbook=".$id.";";
+			$result2 = mysqli_query($con,$query2);
+			$row2 = mysqli_fetch_array($result2);
+				while ($row=mysqli_fetch_array($result)) {
+					if ($row['ideditorial'] == $row2['ideditorial']) {
+						echo '<option selected value = "'.$row['ideditorial'].'">'.$row['nameeditorial'].'</option>';
+					}
+					else{
+						echo '<option value = "'.$row['ideditorial'].'">'.$row['nameeditorial'].'</option>';
+					}
+				}
+			echo '</select>';
+			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Update Book" >'."</div>";
+			echo '</form>';
 		?>
 	</body>
 </html>

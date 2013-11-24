@@ -1,7 +1,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>List Authors</title>
+		<title>Remove Book</title>
 		<link rel="shortcut icon" href="bk.png">
 		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<script type="text/javascript">
@@ -76,30 +76,17 @@
 			if (mysqli_connect_errno($con)) {
 				echo "Error";
 			}
-			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
-			}
-			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
-			}
-			echo '<div class= "mt"><table>
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>Name</th>
-							<th>Nationality</th>
-						</tr>
-					</thead>';
-			echo "  <tbody>";
-			$query = "SELECT * FROM author;";
+			echo '<form action="upd_book2.php" method="get">';
+			echo '<div class="mb" id = "add_books_3"><strong>Books</strong>';
+			echo '<select class="mb" id ="ab_fields" name="id">';
+			$query = "SELECT * FROM book";
 			$result = mysqli_query($con,$query);
-			while ($row=mysqli_fetch_array($result)) {
-					echo "<tr>";
-					echo "<td>".$row['idauthor']."</td>";
-					echo "<td>".$row['nameauthor']."</td>";
-					echo "<td>".$row['nationality']."</td>";
-					echo "</tr>";
-			}
-			echo "  </tbody>";
-			echo "</table></div>";
+				while ($row=mysqli_fetch_array($result)) {
+					echo '<option value = "'.$row['idbook'].'">'.$row['namebook'].'</option>';
+				}
+			echo '</select>';
+			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Update Book" >'."</div>";
+			echo '</form>';
 		?>
 	</body>
 </html>
