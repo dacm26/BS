@@ -1,7 +1,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Add Books</title>
+		<title>Update Book</title>
 		<link rel="shortcut icon" href="bk.png">
 		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<script type="text/javascript">
@@ -48,7 +48,7 @@
 				<ul>
 					<li><a href="author.php">Add Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="del_author.php">Remove Author<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">Update Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="upd_author.php">Update Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="list_authors.php">List Authors<span class = "flecha">&#9660</span></a></li>
 				</ul>
 			</li>
@@ -80,7 +80,6 @@
 			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
-				$query = "INSERT INTO book(isbn,namebook,year,ideditorial) VALUES ("."'".$_POST['isbn_book']."','".$_POST['name_book']."',".$_POST['year_book'].','.$_POST['editorial'].');';
 				$query = 'UPDATE book SET isbn="'.$_POST['isbn_book'].'", namebook="'.$_POST['name_book'].'", year='.$_POST['year_book'].',ideditorial='.$_POST['editorial']." WHERE idbook=".$id.";";
 				echo $query;
 				if(!mysqli_query($con,$query)){

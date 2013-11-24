@@ -1,7 +1,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Remove Editorial</title>
+		<title>Update Author</title>
 		<link rel="shortcut icon" href="bk.png">
 		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<script type="text/javascript">
@@ -79,9 +79,9 @@
 			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
-				$query= "DELETE FROM editorial WHERE ideditorial=".$_POST['editorial'].';';
+				$query= "DELETE FROM author WHERE idauthor=".$_POST['id'].';';
 				if(mysqli_query($con,$query)){
-					$query= "UPDATE book SET ideditorial=NULL WHERE ideditorial=".$_POST['editorial'].';';
+					$query= "DELETE FROM bookauthors WHERE idauthor=".$_POST['id'].';';
 					if (!mysqli_query($con,$query)) {
 						echo '<script>
 							alert("Error");
@@ -94,16 +94,16 @@
 					 	 </script>';
 				}
 			}
-			echo '<form method="post">';
-			echo '<div class="mb" id = "add_books_3"><strong>Editorial</strong>';
-			echo '<select class="mb" id ="ab_fields" name="editorial">';
-			$query = "SELECT * FROM editorial";
+			echo '<form action="upd_author2.php" method="get">';
+			echo '<div class="mb" id = "add_books_3"><strong>Authors</strong>';
+			echo '<select class="mb" id ="ab_fields" name="id">';
+			$query = "SELECT * FROM author";
 			$result = mysqli_query($con,$query);
 				while ($row=mysqli_fetch_array($result)) {
-					echo '<option value = "'.$row['ideditorial'].'">'.$row['nameeditorial'].'</option>';
+					echo '<option value = "'.$row['idauthor'].'">'.$row['nameauthor'].'</option>';
 				}
 			echo '</select>';
-			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Delete Editorial" >'."</div>";
+			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Update author" >'."</div>";
 			echo '</form>';
 		?>
 	</body>

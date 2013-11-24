@@ -1,7 +1,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Remove Book</title>
+		<title>Update Book</title>
 		<link rel="shortcut icon" href="bk.png">
 		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<script type="text/javascript">
@@ -48,7 +48,7 @@
 				<ul>
 					<li><a href="author.php">Add Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="del_author.php">Remove Author<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">Update Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="upd_author.php">Update Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="list_authors.php">List Authors<span class = "flecha">&#9660</span></a></li>
 				</ul>
 			</li>
