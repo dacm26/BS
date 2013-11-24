@@ -1,13 +1,28 @@
-<!DOCTYPE html>
-<html>
+<html lang="es">
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<title>Bookstore</title>
 		<meta charset="utf-8"/>
-		<link rel="shortcut icon" href="bk.png"> 	
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="shortcut icon" href="bk.png">
+		<title>Add BookAuthors</title>
 	</head>
 	<body class="bar">
-		<div>
+		<?php
+		$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+		//$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
+		if (mysqli_connect_errno($con)) {
+			echo "Error";
+		}
+		if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
+		}
+		if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
+				$query= "DELETE FROM bookauthors WHERE idbook=".$_POST['libros']." AND idauthor=".$_POST['authors'].';';
+				if(!mysqli_query($con,$query)){
+					echo '<script>
+							alert("Error");
+					 	 </script>';
+				}
+		}
+							echo '		<div>
 		<ul class = "nav">
 			<li>
 				<a href="index.html">Home<span class = "flecha">&#9660</span></a>
@@ -49,6 +64,32 @@
 				</ul>
 			</li>				
 		</ul>
-		</div>			
+		</div>';
+		echo '<form method="post">';
+		echo '<div class="mb" id ="add_ba"><strong>Books</strong>';
+		echo '<select class="mb" id ="aab_fields" name="libros" required>';
+		echo '<option>Seleccione una Opcion</option>';
+		$query = "SELECT * FROM book";
+		$result = mysqli_query($con,$query);
+		while ($row=mysqli_fetch_array($result)) {
+			echo '<option value = "'.$row['idbook'].'">'.$row['namebook'].'</option>';
+		}
+		echo '</select>';
+		echo "</div>";
+
+		echo '<div class="mb" id ="add_ba_2"><strong>Authors</strong>';
+		echo '<select class="mb" id ="aab_fields_1" name="authors" required>';
+		echo '<option>Seleccione una Opcion</option>';
+		$query = "SELECT * FROM author";
+		$result = mysqli_query($con,$query);
+			while ($row=mysqli_fetch_array($result)) {
+				echo '<option value = "'.$row['idauthor'].'">'.$row['nameauthor'].'</option>';
+			}
+		echo '</select>';
+		echo "</div>";
+		echo "<div>".'<input id="menu_bts_1" type="submit" name="save_button" value="Delete BookAuthor" >'."</div>";
+		echo '</form>';
+		?>
+
 	</body>
 </html>

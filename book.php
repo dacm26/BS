@@ -38,7 +38,7 @@
 				<a href="#">Books<span class = "flecha">&#9660</span></a>
 				<ul>
 					<li><a href="book.php">Add Book<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">Remove Book<span class = "flecha">&#9660</span></a></li>
+					<li><a href="del_book.php">Remove Book<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">Update Book<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">List Book<span class = "flecha">&#9660</span></a></li>
 				</ul>
@@ -47,7 +47,7 @@
 				<a href="#">Authors<span class = "flecha">&#9660</span></a>
 				<ul>
 					<li><a href="author.php">Add Author<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">Remove Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="del_author.php">Remove Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">Update Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">List Authors<span class = "flecha">&#9660</span></a></li>
 				</ul>
@@ -56,7 +56,7 @@
 				<a href="#">Book Authors<span class = "flecha">&#9660</span></a>
 				<ul>
 					<li><a href="bookauthor.php">Add Book Author<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">Remove Book Author<span class = "flecha">&#9660</span></a></li>
+					<li><a href="del_bkau.php">Remove Book Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">Update Book Author<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">List Book Authors<span class = "flecha">&#9660</span></a></li>
 				</ul>
@@ -65,15 +65,15 @@
 				<a href="#">Editorial<span class = "flecha">&#9660</span></a>
 				<ul>
 					<li><a href="editorial.php">Add Editorial<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">Remove Editorial<span class = "flecha">&#9660</span></a></li>
+					<li><a href="del_edit.php">Remove Editorial<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">Update Editorial<span class = "flecha">&#9660</span></a></li>
 					<li><a href="#">List Editorials<span class = "flecha">&#9660</span></a></li>
 				</ul>
 			</li>				
 		</ul>
 		</div>';
-			//con = mysqli_connect("localhost","root","daniel12031994","bookstore");
-			$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
+			$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+			//$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
 			if (mysqli_connect_errno($con)) {
 				echo "Error";
 			}

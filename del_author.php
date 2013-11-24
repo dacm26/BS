@@ -1,7 +1,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Add Authors</title>
+		<title>Add Books</title>
 		<link rel="shortcut icon" href="bk.png">
 		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<script type="text/javascript">
@@ -80,17 +80,32 @@
 			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
-				$query = "INSERT INTO author(nameauthor,nationality) VALUES ("."'".$_POST['name_author']."','".$_POST['nationality']."');";
-				if(!mysqli_query($con,$query)){
-				echo '<script>
-						alert("Ya hay autores con ese Id");
-					  </script>';
+				$query= "DELETE FROM author WHERE idauthor=".$_POST['id'].';';
+				if(mysqli_query($con,$query)){
+					$query= "DELETE FROM bookauthors WHERE idauthor=".$_POST['id'].';';
+					if (!mysqli_query($con,$query)) {
+						echo '<script>
+							alert("Error");
+					 	 </script>';
+					}
+				}
+				else{
+					echo '<script>
+							alert("Error");
+					 	 </script>';
 				}
 			}
 			echo '<form method="post">';
-			echo '<div class="mb" id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="name_author" placeholder="Author Name" required >'."</div>";
-			echo '<div class="mb" id ="add_books_2" >'."<strong>Nationality</strong>".'<input id ="ab_fields" type="text" name="nationality" placeholder="Nationality" required >'."</div>";
-			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Add Author" >'."</div>";
+			echo '<div class="mb" id = "add_books_3"><strong>Authors</strong>';
+			echo '<select class="mb" id ="ab_fields" name="id">';
+			echo '<option>...</option>';
+			$query = "SELECT * FROM author";
+			$result = mysqli_query($con,$query);
+				while ($row=mysqli_fetch_array($result)) {
+					echo '<option value = "'.$row['idauthor'].'">'.$row['nameauthor'].'</option>';
+				}
+			echo '</select>';
+			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Delete author" >'."</div>";
 			echo '</form>';
 		?>
 	</body>
