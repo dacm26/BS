@@ -1,7 +1,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>List Books</title>
+		<title>Update Editorial</title>
 		<link rel="shortcut icon" href="bk.png">
 		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<script type="text/javascript">
@@ -76,34 +76,27 @@
 			if (mysqli_connect_errno($con)) {
 				echo "Error";
 			}
+			$id=$_GET['id'];
 			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
+				$query = 'UPDATE editorial SET nameeditorial="'.$_POST['nameeditorial'].'", address="'.$_POST['address'].'" WHERE ideditorial='.$id.";";
+				echo $query;
+				if(!mysqli_query($con,$query)){
+				echo '<script>
+						alert("Error");
+					  </script>';
+				}
+				echo '<script>window.location.assign("upd_edit.php")</script>';
 			}
-			echo '<div class= "mt"><table>
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>ISBN</th>
-							<th>Name</th>
-							<th>Year</th>
-							<th>Editorial</th>
-						</tr>
-					</thead>';
-			echo "  <tbody>";
-			$query = "SELECT B.idbook,B.isbn,B.namebook,B.year,E.nameeditorial FROM book B JOIN editorial E ON B.ideditorial=E.ideditorial;";
+			$query = "SELECT * FROM editorial WHERE ideditorial=".$id.";";
 			$result = mysqli_query($con,$query);
-			while ($row=mysqli_fetch_array($result)) {
-					echo "<tr>";
-					echo "<td>".$row['idbook']."</td>";
-					echo "<td>".$row['isbn']."</td>";
-					echo "<td>".$row['namebook']."</td>";
-					echo "<td>".$row['year']."</td>";
-					echo "<td>".$row['nameeditorial']."</td>";
-					echo "</tr>";
-			}
-			echo "  </tbody>";
-			echo "</table></div>";
+			$row=mysqli_fetch_array($result);
+			echo '<form method="post">';
+			echo '<div class="mb" id ="add_books_2" >'."<strong>Name</strong>".'<input id ="ab_fields" type="text" name="nameeditorial" placeholder="Author Name" required value="'.$row['nameeditorial']. '"">'."</div>";
+			echo '<div class="mb" id ="add_books_2" >'."<strong>Address</strong>".'<input id ="ab_fields" type="text" name="address" placeholder="Nationality" required value="'.$row['address']. '">'."</div>";
+			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Update Editorial" >'."</div>";
+			echo '</form>';
 		?>
 	</body>
 </html>

@@ -1,7 +1,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8"/>
-		<title>List Books</title>
+		<title>Update Editorial</title>
 		<link rel="shortcut icon" href="bk.png">
 		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<script type="text/javascript">
@@ -80,30 +80,17 @@
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
 			}
-			echo '<div class= "mt"><table>
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>ISBN</th>
-							<th>Name</th>
-							<th>Year</th>
-							<th>Editorial</th>
-						</tr>
-					</thead>';
-			echo "  <tbody>";
-			$query = "SELECT B.idbook,B.isbn,B.namebook,B.year,E.nameeditorial FROM book B JOIN editorial E ON B.ideditorial=E.ideditorial;";
+			echo '<form action="upd_edit2.php" method="get">';
+			echo '<div class="mb" id = "add_books_3"><strong>Editorials</strong>';
+			echo '<select class="mb" id ="ab_fields" name="id">';
+			$query = "SELECT * FROM editorial";
 			$result = mysqli_query($con,$query);
-			while ($row=mysqli_fetch_array($result)) {
-					echo "<tr>";
-					echo "<td>".$row['idbook']."</td>";
-					echo "<td>".$row['isbn']."</td>";
-					echo "<td>".$row['namebook']."</td>";
-					echo "<td>".$row['year']."</td>";
-					echo "<td>".$row['nameeditorial']."</td>";
-					echo "</tr>";
-			}
-			echo "  </tbody>";
-			echo "</table></div>";
+				while ($row=mysqli_fetch_array($result)) {
+					echo '<option value = "'.$row['ideditorial'].'">'.$row['nameeditorial'].'</option>';
+				}
+			echo '</select>';
+			echo '<div>'.'<input id="menu_bts_1" type="submit" name="save_button" value="Update editorial" >'."</div>";
+			echo '</form>';
 		?>
 	</body>
 </html>

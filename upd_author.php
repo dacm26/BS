@@ -65,34 +65,20 @@
 				<ul>
 					<li><a href="editorial.php">Add Editorial<span class = "flecha">&#9660</span></a></li>
 					<li><a href="del_edit.php">Remove Editorial<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">Update Editorial<span class = "flecha">&#9660</span></a></li>
+					<li><a href="upd_edit.php">Update Editorial<span class = "flecha">&#9660</span></a></li>
 					<li><a href="list_editorial.php">List Editorials<span class = "flecha">&#9660</span></a></li>
 				</ul>
 			</li>				
 		</ul>
 		</div>';
-			$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
-			//$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
+			//$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+			$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
 			if (mysqli_connect_errno($con)) {
 				echo "Error";
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'GET'){//Para cuando recargue la pagina y solo quiere refrescarlo o si quiere que pase algo cuando cargue la pagina para read 
 			}
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){//Para cuando recargue la pagina y le envia la data que ingreso el usuario para insert delete
-				$query= "DELETE FROM author WHERE idauthor=".$_POST['id'].';';
-				if(mysqli_query($con,$query)){
-					$query= "DELETE FROM bookauthors WHERE idauthor=".$_POST['id'].';';
-					if (!mysqli_query($con,$query)) {
-						echo '<script>
-							alert("Error");
-					 	 </script>';
-					}
-				}
-				else{
-					echo '<script>
-							alert("Error");
-					 	 </script>';
-				}
 			}
 			echo '<form action="upd_author2.php" method="get">';
 			echo '<div class="mb" id = "add_books_3"><strong>Authors</strong>';

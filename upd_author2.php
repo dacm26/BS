@@ -65,14 +65,14 @@
 				<ul>
 					<li><a href="editorial.php">Add Editorial<span class = "flecha">&#9660</span></a></li>
 					<li><a href="del_edit.php">Remove Editorial<span class = "flecha">&#9660</span></a></li>
-					<li><a href="#">Update Editorial<span class = "flecha">&#9660</span></a></li>
+					<li><a href="upd_edit.php">Update Editorial<span class = "flecha">&#9660</span></a></li>
 					<li><a href="list_editorial.php">List Editorials<span class = "flecha">&#9660</span></a></li>
 				</ul>
 			</li>				
 		</ul>
 		</div>';
-			$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
-			//$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
+			//$con = mysqli_connect("localhost","root","daniel12031994","bookstore");
+			$con = mysqli_connect("mysql1.alwaysdata.com","dacm26","daniel12031994","dacm26_bookstore");
 			if (mysqli_connect_errno($con)) {
 				echo "Error";
 			}
@@ -87,7 +87,7 @@
 						alert("Error");
 					  </script>';
 				}
-				echo '<script>window.location.assign("upd_book.php")</script>';
+				echo '<script>window.location.assign("upd_author.php")</script>';
 			}
 			$query = "SELECT * FROM author WHERE idauthor=".$id.";";
 			$result = mysqli_query($con,$query);
